@@ -3,7 +3,7 @@
 
 ?>
 
-<form action="" method="GET" id="formulaire">
+<form action="" method="POST" id="formulaire">
     <label for="nom"></label>
     <input type="text" id="nom" name="nom" placeholder="Nom" >
     
@@ -30,7 +30,7 @@
 
     <tbody>
         <?php 
-            foreach ($_GET as $key => $value){
+            foreach ($_POST as $key => $value){
                 if ($value !== ""){
                     echo "
                         <tr>
