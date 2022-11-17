@@ -12,12 +12,6 @@
 </form> 
 
 <?php 
-    // if (isset($_POST['username'])) {
-    //     return $_POST['username'];
-    // } else {
-    //     return;
-    // }
-
     foreach ($_POST as $key => $value){
         if ($value !== ""){
             if ($_POST['username'] === "John" && $_POST['password'] === "Rambo") {
@@ -28,13 +22,9 @@
                 echo "Votre pire cauchemar...";
                 break;
             }
-            else{
-                echo "";
-            }
         }
 
     }
-
 ?>
 
 
