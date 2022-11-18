@@ -3,7 +3,7 @@
 
 ?>
 
-<form action="" method="get" id="formulaire">
+<form action="" method="GET" id="formulaire">
     <label for="nom"></label>
     <input type="text" id="nom" name="nom" placeholder="Nom" >
     
@@ -29,22 +29,16 @@
     </thead>
 
     <tbody>
-        <tr>
-            <td>Nom</td>
-            <td><?php if (isset($_GET['nom'])) {echo $_GET['nom'];} ?></td>
-        </tr>
-        <tr>
-            <td>Prénom</td>
-            <td><?php if (isset($_GET['prenom'])) { echo $_GET['prenom'];} ?></td>
-        </tr>
-        <tr>
-            <td>Age</td>
-            <td><?php if (isset($_GET['age'])) { echo $_GET['age'];} ?></td>
-        </tr>
-        <tr>
-            <td>Mail</td>
-            <td><?php if (isset($_GET['mail'])) { echo $_GET['mail'];} ?></td>
-        </tr>
-
+        <?php 
+            foreach ($_GET as $key => $value){
+                if ($value !== ""){
+                    echo "
+                        <tr>
+                            <td>$key</td>
+                            <td>$value</td>
+                        </tr>";
+                }
+            }
+        ?>
     </tbody>
 </table>

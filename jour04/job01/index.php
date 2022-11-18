@@ -1,7 +1,4 @@
 <style><?php include "style.css"; ?></style> 
-<?php 
-
-?>
 
 <form action="" method="GET" id="formulaire">
     <label for="nom"></label>
@@ -20,25 +17,16 @@
     <input type="submit" value="Envoyer" id="submit">
 </form> 
 
-<table>
-    <thead>
-        <tr>
-            <th>Argument</th>
-            <th>Valeur</th>
-        </tr>
-    </thead>
 
-    <tbody>
-        <?php 
-            foreach ($_GET as $key => $value){
-                if ($value !== ""){
-                    echo "
-                        <tr>
-                            <td>$key</td>
-                            <td>$value</td>
-                        </tr>";
-                }
-            }
-        ?>
-    </tbody>
-</table>
+<?php 
+    $nbr = 0;
+
+    foreach ($_GET as $value){
+        if ($value !== ""){
+            $nbr ++;
+        }
+    }
+    echo "$nbr arguments ont été envoyés."
+?>
+
+
