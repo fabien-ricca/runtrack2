@@ -2,8 +2,9 @@
     function len($str){         // Fonction pour compter le nombre de lettres
         for ($i=0; isset($str[$i]); $i++){
         }
-        return $i;
+        return $i;          
     }
+
 
     function split($str){    // Fonction pour split une str mot par mot
         $j = 0;                                 
@@ -22,23 +23,12 @@
         return $array;                          // On retourne le tableau
     }
 
-    function occurences($str, $char){   // Fonction pour tester les occurences
-        $count =0;
-        for ($i=0; isset($str[$i]); $i++){
-            if ($str[$i] === $char){
-                $count++;
-            }
-        }
-
-        return $count;
-    }
-
 
     $str ="Je m'appelleme Padawan et j'aime La Vie bien";
     /*var_dump(split($str));*/
     
 
-    function bold($a){     /////////////////// FONCTION POUR METTRE EN GRAS SI 1ERE LETTRE EN MAJUSCULE ///////////////////
+    function gras($a){     /////////////////// FONCTION POUR METTRE EN GRAS SI 1ERE LETTRE EN MAJUSCULE ///////////////////
         $strArray = (split($a));                                        // On split la phrase à modifier
         $alphabet =['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H',             // On créer un tableau d'alphabet majuscule
                     'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 
@@ -58,20 +48,25 @@
             return $newStr;                                                 // On retourne la variable str
         }
 
-    /*echo bold($str);*/
+    /*echo gras($str);*/
 
 
-    function endWord($a){    
-        $strArray = (split($a));                                        
+    function plateforme($a){    
+        $strArray = split($a);                                       
         $newStr ="";                                                   
 
-        for ($i=0; isset($strArray[$i]); $i++){                         
-            if ($strArray[$i][len($strArray[$i])] === "e" && $strArray[$i][len($strArray[$i]) - 1] === "m" ){                   
-                $strArray[$i] = $strArray[$i] . '_';         
+        foreach($strArray as $str){
+            $lenArray = len($str); 
+            if ($str != ""){
+                if(isset($str[$lenArray - 2]) === "m" && isset($str[$lenArray - 1]) === "e")
+                    $str .= '_';
+                    echo"test ";
             }
-            $newStr .= $strArray[$i] . ' ';  
+            $newStr .= $str . ' ';
         }
+
+        
         return $newStr;   
     }
-    echo endWord($str);
+    echo plateforme($str);
 ?>
