@@ -1,4 +1,4 @@
-/* Selctionner que les étudiants de plus de 18ans
+/* Selctionner que les étudiants de moins de 18ans
     fonction TIMESTAMPDIFF(unit, date1, date2) => date2 - date1 
                             unit =  FRAC_SECOND
                                     SECOND
@@ -11,4 +11,4 @@
                                     YEAR
                                     
     fonction CURDATE() => date du jour */
-SELECT * FROM etudiants WHERE TIMESTAMPDIFF(YEAR, naissance, CURDATE()) >= 18;
+SELECT * FROM etudiants WHERE TIMESTAMPDIFF(YEAR, naissance, CURDATE()) < 18;
